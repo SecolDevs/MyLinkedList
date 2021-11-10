@@ -20,3 +20,35 @@ Meal::Meal(const std::string &id, const std::string &name, const std::string &de
                                                                                                           cost(cost) {}
 
 Meal::~Meal() {}
+
+const std::string &Meal::getId() const {
+    return id;
+}
+
+void Meal::setId(const std::string &id) {
+    Meal::id = id;
+}
+
+const std::string &Meal::getName() const {
+    return name;
+}
+
+void Meal::setName(const std::string &name) {
+    Meal::name = name;
+}
+
+const std::string &Meal::getDescription() const {
+    return description;
+}
+
+void Meal::setDescription(const std::string &description) {
+    Meal::description = description;
+}
+
+double Meal::getCost() const {
+    return cost;
+}
+
+void Meal::setCost(double cost) {
+    Meal::cost = cost;
+}

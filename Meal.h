@@ -14,6 +14,22 @@ public:
 
     Meal(const std::string &id, const std::string &name, const std::string &description, double cost);
 
+    const std::string &getId() const;
+
+    void setId(const std::string &id);
+
+    const std::string &getName() const;
+
+    void setName(const std::string &name);
+
+    const std::string &getDescription() const;
+
+    void setDescription(const std::string &description);
+
+    double getCost() const;
+
+    void setCost(double cost);
+
     virtual ~Meal();
 
     friend std::ostream &operator<<(std::ostream &os, const Meal &meal);

@@ -22,9 +22,9 @@ public:
 
     void append(T);
 
-    void insertBeforeTo(T, std::string);
+    void insertBeforeTo(T, Node<T> *);
 
-    void insertAfterTo(T, std::string);
+    void insertAfterTo(T, Node<T> *);
 
     bool lookUp(std::string);
 

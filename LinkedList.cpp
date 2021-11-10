@@ -35,23 +35,50 @@ void LinkedList<T>::append(T value) {
 }
 
 template<class T>
-void LinkedList<T>::insertBeforeTo(T value, std::string id) {
-
+void LinkedList<T>::insertBeforeTo(T value, Node<T> *node) {
+    if (node == head) prepend(value);
+    else {
+        Node<T> *newNode = new Node<T>(value);
+        Node<T> *aux = head;
+        while (aux->next != node) {
+            aux = aux->next;
+        }
+        newNode->next = aux->next;
+        aux->next = newNode;
+    }
 }
 
 template<class T>
-void LinkedList<T>::insertAfterTo(T value, std::string id) {
-
+void LinkedList<T>::insertAfterTo(T value, Node<T> *node) {
+    Node<T> *newNode = new Node<T>(value);
+    Node<T> *aux = head;
+    while (aux != node) {
+        aux = aux->next;
+    }
+    newNode->next = aux->next;
+    aux->next = newNode;
 }
 
 template<class T>
 bool LinkedList<T>::lookUp(std::string id) {
+    Node<T> *aux = head;
+    while (aux != NULL) {
+        if ((id.compare(aux->value.getId()) == 0)) return true;
+        aux = aux->next;
+    }
+
     return false;
 }
 
 template<class T>
 Node<T> *LinkedList<T>::search(std::string id) {
-    return Node<T>(T());
+    Node<T> *aux = head;
+    while (aux != NULL) {
+        if ((id.compare(aux->value.getId()) == 0)) return aux;
+        aux = aux->next;
+    }
+
+    return NULL;
 }
 
 template<class T>
@@ -67,5 +94,10 @@ std::vector<T> LinkedList<T>::getLinkedList() {
 
 template<class T>
 LinkedList<T>::~LinkedList() {
-
+    Node<T> *aux;
+    while (head != NULL) {
+        aux = head;
+        head = head->next;
+        delete (aux);
+    }
 }
